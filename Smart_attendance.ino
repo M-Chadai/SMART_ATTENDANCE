@@ -158,7 +158,7 @@ String createWebPage() {
           color: white;
           padding: 20px;
         }
-        h1 { color: white; }
+        h1 { color: black; }
         table {
           width: 100%;
           border-collapse: collapse;
