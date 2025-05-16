@@ -1,0 +1,83 @@
+# Embedded Systems & IoT Internship – Munyaneza El-Chadai
+
+**Institution:** ACEJ/Karama  
+**Duration:** January 2025 – May 2025  
+**Internship Title:** Embedded Systems & IoT Engineering Internship  
+
+---
+
+##  Description
+
+During this internship, I worked on a range of innovative and hands-on projects focused on embedded systems and Internet of Things (IoT) solutions. I used microcontrollers, sensors, and web technologies to design, prototype, and simulate real-world systems. Each project was aimed at solving practical problems and improving automation in everyday environments.
+
+---
+
+## Projects & Contributions
+
+### 1. RFID-Based Smart Attendance System
+- Used ESP32, MFRC522, and NTP to log attendance with real timestamps.
+- Web interface with admin login, CSV export, and date-based filtering.
+- Dynamic dashboard displaying real-time records.
+
+### 2. Smart Water Dispenser System
+- Built a prepaid water system using ESP32, RFID, YF-S201, and solenoid valve.
+- Tracked water usage and cost, controlled via RFID smart card.
+- LCD display and secure user access.
+
+### 3. Automatic School Bell System
+- Scheduled school bell using ESP32 Xiao and DS1307 RTC.
+- Integrated keypad and I2C LCD for time configuration.
+- Extended to support a web-based scheduling panel.
+
+### 4. Vehicle Speed Monitoring & Limiter
+- Used STM32 microcontroller with GPS, buzzer, LEDs, and relay.
+- Designed to alert and control vehicle speed based on location.
+- Modeled after commercial speed limiter solutions.
+
+### 5. ProxiGuard – Smart Gate System
+- Automated gate using ultrasonic sensor, servo motor, Bluetooth, and LCD.
+- Opened via proximity detection and voice command.
+- Enhanced with visual and sound alerts.
+
+### 6. Bluetooth-Controlled Relay Lamp
+- Simple IoT control of a lamp using Arduino and HC-05 Bluetooth.
+- Controlled by smartphone voice or button input.
+
+### 7. Wireless LED Control
+- Built transmitter and receiver boards to toggle an LED wirelessly.
+- Demonstrated RF-based communication and state control.
+
+### 8. Web-Controlled Drone Simulator
+- Simulated pitch, roll, and throttle controls using ESP32 and a web UI.
+- Demonstrated real-time control via Wi-Fi interface.
+
+### 9. PCB Design with EasyEDA
+- Created PCB layouts and schematics for selected projects.
+- Practiced professional board design, layout optimization, and footprint creation.
+
+---
+
+## Skills Gained
+
+- Programming: Embedded C/C++, Arduino, Web (HTML, CSS, JavaScript)
+- Microcontrollers: ESP32, STM32, Arduino Uno
+- Web Server Hosting on ESP32
+- Sensor integration and real-time control (RFID, GPS, Flow, RTC, etc.)
+- PCB Design using EasyEDA
+- Prototyping and Simulation (Wokwi, hardware)
+- System troubleshooting, testing, and documentation
+
+---
+
+##  Outcome
+
+This internship provided hands-on experience in embedded system development and IoT integration. I successfully built several working prototypes that demonstrate real-world automation and control systems. It significantly strengthened my technical problem-solving and project development skills.
+
+---
+
+##  Author
+
+**Munyaneza El-Chadai**  
+Computer Systems & Architecture Student  
+ACEJ/Karama (2023–2026)
+
