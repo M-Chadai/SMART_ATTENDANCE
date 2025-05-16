@@ -1,0 +1,54 @@
+# 📋 Smart Attendance System
+
+A smart, web-based attendance tracking system using **ESP32**, **MFRC522 RFID Reader**, **NTP (Network Time Protocol)**, and a real-time **web dashboard**. Designed to log attendance with RFID cards and display it dynamically with admin features.
+
+---
+
+## 🚀 Features
+
+- 📶 **Wi-Fi Enabled ESP32** for real-time updates
+- 🕒 **Real Date & Time** via NTP
+- 📇 **RFID Authentication** using MFRC522
+- 🌐 **Web Dashboard** with:
+  - Live attendance table
+  - Admin login page
+  - CSV export for records
+  - Date-based filtering
+- 📟 Optional **LCD Display** for name and timestamp
+- 🛡️ Secure admin access with login page
+
+---
+
+## 🧰 Hardware Used
+
+| Component            | Description                     |
+|---------------------|---------------------------------|
+| ESP32               | Microcontroller with Wi-Fi      |
+| MFRC522 RFID Module | For reading RFID tags/cards     |
+| RC522 Tags          | RFID tags assigned to users     |
+| LCD (I2C)           | Displays names and time (optional) |
+| Buzzer (optional)   | For entry feedback sound        |
+| Power Supply        | 5V USB or battery                |
+
+---
+
+## 🖥️ Web Interface
+
+- **Login Page:** Secure access for admins  
+- **Dashboard:**
+  - Shows who is present
+  - Real-time updates (auto-refresh every 2 seconds)
+  - CSV export option
+  - Date filter (view by day)
+
+---
+
+## 📦 File Structure
+
+smart-attendance/
+├── src/ # Arduino/ESP32 source code
+├── data/ # HTML, CSS, JS files for web interface
+│ ├── login.html
+│ ├── dashboard.html
+│ ├── style.css
+│ └── script.js
