@@ -3,7 +3,53 @@
 #include <MFRC522.h>
 #include <WebServer.h>
 #include <NTPClient.h>
-#
+#include <WiFiUdp.h>
+
+#define SS_PIN 5
+#define RST_PIN 22
+#define RED_LED 2
+#define GREEN_LED 3
+
+MFRC522 mfrc522(SS_PIN, RST_PIN);
+
+const char* ssid = "Chadai Developer";
+const char* password = "chadai12";
+
+WebServer server(80);
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP, "pool.ntp.org", 3600, 60000); // +1 hour offset for Africa/Kigali
+
+String attendees = "";
+String fullLog = "";
+bool isLoggedIn = false;
+
+const String adminUser = "admin";
+const String adminPass = "1234";
+String loginPageHtml;
+
+void setup() {
+  Serial.begin(115200);
+  SPI.begin();
+  mfrc522.PCD_Init();
+
+  pinMode(RED_LED, OUTPUT);
+  pinMode(GREEN_LED, OUTPUT);
+  ledcAttachPin(RED_LED, 0);
+  ledcAttachPin(GREEN_LED, 1);
+  ledcSetup(0, 5000, 8);  // Red LED
+  ledcSetup(1, 5000, 8);  // Green LED
+
+  WiFi.begin(ssid, password);
+  Serial.print("Connecting to WiFi...");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print(".");
+  }
+  Serial.println("\nWiFi connected!");
+  Serial.println(WiFi.localIP());
+
+  timeClient.begin();
+
   loginPageHtml = R"rawliteral(
   <!DOCTYPE html>
   <html>
@@ -122,22 +168,23 @@ void loop() {
     }
 
     if (name == "Unknown User") {
-      blinkLED(RED_LED, "RED");
+      blinkLED(RED_LED, 0, "RED");
     } else {
-      blinkLED(GREEN_LED, "GREEN");
+      blinkLED(GREEN_LED, 1, "GREEN");
     }
 
     delay(1000); // Prevent double scan
   }
 }
 
-void blinkLED(int pin, const char* color) {
+void blinkLED(int pin, int channel, const char* color) {
   for (int i = 0; i < 2; i++) {
-    digitalWrite(pin, HIGH);
-    Serial.printf("%s LED ON - Approx Voltage: 3.3V\n", color);
+    ledcWrite(channel, 255);
+    Serial.printf("%s LED ON - Approx Voltage: %.2fV\n", color, 3.3);
     delay(200);
-    digitalWrite(pin, LOW);
-    Serial.printf("%s LED OFF - Approx Voltage: 0.0V\n", color);
+
+    ledcWrite(channel, 0);
+    Serial.printf("%s LED OFF - Approx Voltage: 0.00V\n", color);
     delay(200);
   }
 }
@@ -158,7 +205,7 @@ String createWebPage() {
           color: white;
           padding: 20px;
         }
-        h1 { color: black; }
+        h1 { color: white; }
         table {
           width: 100%;
           border-collapse: collapse;
@@ -209,7 +256,7 @@ String createWebPage() {
 String getNameFromUID(String uid) {
   if (uid == "4589C801") return "John Doe";
   if (uid == "AED4F060") return "Jane Smith";
-  if (uid == "DDDC3103") return "El-chadai Munyaneza";
+  if (uid == "DDDC3103") return "El-chadai munyaneza";
   return "Unknown User";
 }
 
