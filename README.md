@@ -35,7 +35,7 @@ This project connects an **ESP32** to an **MFRC522 RFID module** along with **Re
 
 | MFRC522 Pin | ESP32 Pin | Function         |
 |-------------|-----------|------------------|
-| SDA         | D21       | SS (Slave Select)|
+| SDA         | D5        | SS (Slave Select)|
 | SCK         | D18       | SPI Clock        |
 | MOSI        | D23       | SPI MOSI         |
 | MISO        | D19       | SPI MISO         |
@@ -49,8 +49,8 @@ This project connects an **ESP32** to an **MFRC522 RFID module** along with **Re
 
 | LED Color | ESP32 Pin | Notes                        |
 |-----------|-----------|------------------------------|
-| Red       | D32       | With 220Ω resistor to GND    |
-| Green     | D12       | With 220Ω resistor to GND    |
+| Red       | D2        | With 220Ω resistor to GND    |
+| Green     | D3        | With 220Ω resistor to GND    |
 
 ---
 
