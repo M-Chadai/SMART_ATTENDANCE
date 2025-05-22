@@ -24,7 +24,45 @@ The Smart Attendance System is an IoT-based solution designed to track and log a
 - NTP (Network Time Protocol) for timestamps  
 - HTML/CSS/JavaScript for web interface  
 - MicroSD Card (optional, for storage)  
-- Arduino IDE or PlatformIO  
+- Arduino IDE or PlatformIO
+# Wiring connectons
+
+This project connects an **ESP32** to an **MFRC522 RFID module** along with **Red** and **Green LEDs** to indicate RFID tag detection.
+
+---
+
+##  ESP32 to MFRC522 RFID Module Connections
+
+| MFRC522 Pin | ESP32 Pin | Function         |
+|-------------|-----------|------------------|
+| SDA         | D21       | SS (Slave Select)|
+| SCK         | D18       | SPI Clock        |
+| MOSI        | D23       | SPI MOSI         |
+| MISO        | D19       | SPI MISO         |
+| RST         | D22       | Reset            |
+| 3.3V        | 3.3V      | Power            |
+| GND         | GND       | Ground           |
+
+---
+
+##  LED Connections
+
+| LED Color | ESP32 Pin | Notes                        |
+|-----------|-----------|------------------------------|
+| Red       | D32       | With 220Ω resistor to GND    |
+| Green     | D12       | With 220Ω resistor to GND    |
+
+---
+
+##  Notes
+
+- Ensure the ESP32 provides **3.3V** power to the RFID module (not 5V).
+- Use **current-limiting resistors** for LEDs to prevent damage.
+- Make sure the SPI pins match your ESP32 board's pinout if using a different variant.
+
+---
+
+
 
 ## How It Works
 
@@ -46,6 +84,3 @@ The Smart Attendance System is an IoT-based solution designed to track and log a
 - Background: Ice forest scene  
 - Table Columns: Name | Time  
 - Buttons: "Export CSV", "Filter by Date" (optional)  
-
-## File Structure
-
